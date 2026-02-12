@@ -5,9 +5,74 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* මම අලුතින් එකතු කළ කොටස: පැත්තට සයිට් එක ලිස්සා යාම නවත්වයි */
+  overflow-x: hidden;
+  width: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* ============================================================
+   මල්ලි, මෙතැන් සිට පහළට තියෙන්නේ Mobile Responsive කෝඩ් එකයි.
+   සයිට් එක ෆෝන් එකේදී ලස්සනට පේන්න මේ ටික අනිවාර්යයි.
+   ============================================================ */
+
+/* 1. ෆෝන් එකේදී width එක 100% කර ගැනීම */
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* 2. ප්‍රධාන පේජ් එකේ පෙනුම ෆෝන් එකට ගැළපීම */
+@media (max-width: 768px) {
+  
+  /* ඕනෑම Flexbox එකක් යටට (Column) හැරවීම */
+  div[style*="display: flex"], 
+  .flex, 
+  [class*="container"] {
+    flex-direction: column !important;
+    display: flex !important;
+  }
+
+  /* ලොගින් පේජ් එකේ වම් පැත්තේ පින්තූරය වැඩියි නම් ඒක හංගන්න */
+  div[class*="image"], 
+  div[class*="left"], 
+  .banner,
+  img[src*="village"] {
+    display: none !important;
+  }
+
+  /* ෆෝම් එක සහ අනෙකුත් ලේඛන සම්පූර්ණ පළලට ගැනීම */
+  div[class*="form"], 
+  div[class*="right"], 
+  div[class*="login"], 
+  div[class*="content"],
+  main {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    padding: 15px !important;
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
+
+  /* ඉන්පුට් box සහ බොත්තම් ෆෝන් එකේ දාරවල වදින්නේ නැති වෙන්න */
+  input, select, textarea, button {
+    width: 100% !important;
+    font-size: 16px !important; /* Zoom වීම වැළැක්වීමට */
+    margin: 5px 0 !important;
+  }
+
+  /* අකුරු වල ප්‍රමාණය ෆෝන් එකට ගළපන්න */
+  h1 { font-size: 1.6rem !important; }
+  h2 { font-size: 1.4rem !important; }
+  h3 { font-size: 1.2rem !important; }
 }

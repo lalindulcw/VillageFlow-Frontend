@@ -36,3 +36,70 @@
     transform: rotate(360deg);
   }
 }
+
+/* ============================================================
+   මල්ලි, මෙතැන් සිට පහළට තියෙන්නේ Mobile Responsive කෝඩ් එකයි.
+   මේවායින් ඔයාගේ සයිට් එක ෆෝන් එකට ගැළපෙන විදිහට හැඩගැසෙනවා.
+   ============================================================ */
+
+/* 1. මුළු සයිට් එකේම පළල ෆෝන් එකේ ස්ක්‍රීන් එකට සමාන කරයි */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* ෆෝන් එකේදී සයිට් එක පැත්තට ලිස්සා යාම නවත්වයි */
+  width: 100%;
+}
+
+/* 2. ඕනෑම පේජ් එකක ප්‍රධාන කොටස් වල පළල 100% කිරීම */
+div[class*="container"], 
+div[class*="wrapper"], 
+div[class*="page"],
+div[class*="login"],
+div[class*="register"] {
+  width: 100% !important;
+  max-width: 100vw !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  margin: 0 auto !important;
+}
+
+/* 3. ෆෝන් එකක් (Mobile) භාවිතා කරන විට ක්‍රියාත්මක වන රීති */
+@media (max-width: 768px) {
+  
+  /* පැත්තෙන් පැත්තට තිබූ දේවල් එකක් යට එකක් තැබීම */
+  div {
+    flex-direction: column !important;
+  }
+
+  /* ලොගින් පේජ් එකේ වම් පැත්තේ ඇති විශාල පින්තූරය ෆෝන් එකේදී සැඟවීම (වැඩි ඉඩක් ගන්නා නිසා) */
+  div[class*="image"], 
+  div[class*="banner"], 
+  .left-side {
+    display: none !important;
+  }
+
+  /* ෆෝම් (Forms) සහ ලිපි (Text) ඇති කොටස් සම්පූර්ණ පළලට ගැනීම */
+  div[class*="form"], 
+  div[class*="content"], 
+  .right-side {
+    width: 100% !important;
+    min-width: 100% !important;
+    padding: 20px !important;
+    height: auto !important;
+  }
+
+  /* ෆෝන් එකේදී අකුරු ඉතා විශාල ලෙස පෙනීම වැළැක්වීමට */
+  h1 { font-size: 1.8rem !important; }
+  h2 { font-size: 1.5rem !important; }
+  p, span, label, input { font-size: 1rem !important; }
+  
+  /* බොත්තම් (Buttons) ෆෝන් එකේදී ඔබන්න පහසු වන ලෙස පළල වැඩි කිරීම */
+  button {
+    width: 100% !important;
+    margin-bottom: 10px;
+  }
+}
